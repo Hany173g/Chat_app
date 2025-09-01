@@ -1,0 +1,29 @@
+
+<%- include('parts/navbar') %>
+
+
+
+
+
+<div class="container mt-3" >
+    <div id="groups">
+        <% for(let group of groups){ %>
+             <img src="default-user-image.png">
+           
+             <a href="/groups/<%= group._id %>"><%= group.groupName %></a>
+             <br>
+        <% } %>
+        <hr>
+        <input type="button" class="btn btn-primary" value="Create Group" id="createGroup">
+       <input type="hidden" value='<%- JSON.stringify(friends) %>' id="friends">
+
+    </div>
+</div>
+
+
+
+<%- include('parts/scripts') %>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/sockets/init.js"></script>
+<script src="/js/sockets/groups.js"></script>
